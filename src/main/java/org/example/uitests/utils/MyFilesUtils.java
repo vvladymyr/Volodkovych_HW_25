@@ -42,7 +42,7 @@ public class MyFilesUtils {
         return null;
     }
 
-//    public static void main(String[] args) throws IOException {
-//        generateLoremFile();
-//    }
+    public static void main(String[] args) throws IOException {
+        generateLoremFile();
+    }
 }

@@ -47,10 +47,10 @@ public class BaseTestClassUseProperties {
     }
 
     public void goToUrl() {
-        goToUrl(ConfigProvider.getInstance().getProperty("app.base.url"));
+        goToUrl(ConfigProvider.getInstance().getProperty("url.test"));
     }
 
     public void goToPart(String part) {
-        goToUrl(ConfigProvider.getInstance().getProperty("app.base.url") + part);
+        goToUrl(ConfigProvider.getInstance().getProperty("url.test") + part);
     }
 }
