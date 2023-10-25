@@ -8,7 +8,7 @@ public class WebDriverHolder {
     private WebDriver driver;
 
     WebDriverHolder() {
-        driver = WebDriverFactory3.getDriver();
+        driver = WebDriverFactory.getDriver();
     }
 
     public static WebDriverHolder getInstance() {

@@ -6,47 +6,31 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
-    private static WebDriver driver;
-
-//    private final static String BROWSER = System.getProperty("browser", "chrome");
-    private final static String BROWSER = System.getProperty("browser");
-
     public static WebDriver getDriver(Browser browser) {
-        switch(browser) {
+        WebDriver driver = null;
+        switch (browser) {
             case CHROME:
-                return getChromeDriver();
-            case FIREFOX:
-                return getFirefoxDriver();
+                driver = new ChromeDriver();
+                break;
             case EDGE:
-                return getEdgeDriver();
-            default:
-                throw new IllegalArgumentException("Wrong type of browser provided. Choose are: chrome, firefox");
+                driver = new EdgeDriver();
+                break;
+            case FIREFOX:
+                driver = new FirefoxDriver();
+                break;
         }
-    }
-
-    private static WebDriver getEdgeDriver() {
-        if (driver == null) {
-            driver = new EdgeDriver();
-        }
+        driver.manage().window().maximize();
         return driver;
     }
 
     public static WebDriver getDriver() {
-        driver = getDriver(Browser.valueOf(BROWSER.toUpperCase()));
-        return driver;
-    }
-
-    private static WebDriver getChromeDriver() {
-        if (driver == null) {
-            driver = new ChromeDriver();
+        Browser browser = null;
+        try {
+            browser = Browser.valueOf(System.getProperty("browser", "chrome").toUpperCase());
+        } catch (IllegalArgumentException ex) {
+            System.out.println("This driver is not supported.\nPlease choose: chrome, edge, firefox");
+            System.exit(-1); // Щоб не йшло виконання далі
         }
-        return driver;
-    }
-
-    private static WebDriver getFirefoxDriver() {
-        if (driver == null) {
-            driver = new FirefoxDriver();
-        }
-        return driver;
+        return getDriver(browser);
     }
 }

@@ -1,6 +1,5 @@
 package org.example.uitests;
 
-import org.example.uitests.driver.WebDriverFactory3;
 import org.example.uitests.driver.WebDriverHolder;
 import org.example.uitests.utils.ConfigProvider;
 import org.openqa.selenium.WebDriver;
