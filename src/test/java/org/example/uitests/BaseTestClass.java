@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 
-public class BaseTestClassUseProperties {
+public class BaseTestClass {
     protected WebDriver driver;
 
     @BeforeClass
@@ -50,6 +50,6 @@ public class BaseTestClassUseProperties {
     }
 
     public void goToPart(String part) {
-        goToUrl(ConfigProvider.getInstance().getProperty("url.test") + part);
+        goToUrl(ConfigProvider.getInstance().getProperty("app.base.url") + part);
     }
 }
