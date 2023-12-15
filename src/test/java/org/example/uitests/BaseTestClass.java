@@ -52,4 +52,14 @@ public class BaseTestClass {
     public void goToPart(String part) {
         goToUrl(ConfigProvider.getInstance().getProperty("app.base.url") + part);
     }
+    private static final String USER_NAME = ConfigProvider.getInstance().getProperty("login.tests.username");
+
+    private static final String USER_PASS = ConfigProvider.getInstance().getProperty("login.tests.password");
+    public static String getUserName() {
+        return USER_NAME;
+    }
+
+    public static String getUserPass() {
+        return USER_PASS;
+    }
 }
